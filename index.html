@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Base Conversion Mini Project</title>
+</head>
+<body>
+   <div class="box"> 
+    <h1>BASE CONVERSION</h1>
+    <p>Enter Your Number</p>
+    
+    <input type="text" id="NUM" placeholder="Enter Number" autocomplete="off"/>
+    <p>From</p>
+    <label>Base:</label>
+    <select id="INP1">
+        <option value="bin">Binary</option>
+        <option value="octal">Octal</option>
+        <option value="decimal">Decimal</option>
+        <option value="hexadecimal">Hexadecimal</option>
+    </select>
+    <p>To</p>
+    <label>Base:</label>
+    <select id="INP2">
+        <option value="bin">Binary</option>
+        <option value="octal">Octal</option>
+        <option value="decimal">Decimal</option>
+        <option value="hexadecimal">Hexadecimal</option>
+    </select>
+    <br><br>
+    <button class="stars" type="button" onclick="con()">Submit</button>
+    <br><br>
+    <input id="RESULT" type="text" readonly placeholder="Result:-"/>
+</div>
+
+<script>
+    function con() {
+        let num = document.getElementById("NUM").value.trim();
+        let fromBase = document.getElementById("INP1").value;
+        let toBase = document.getElementById("INP2").value;
+        let result = '';
+
+        if (num === "") {
+            document.getElementById("RESULT").value = "Please enter a number.";
+            return;
+        }
+
+        let decimalNumber;
+        if (fromBase === "bin") {
+            if (!/^[01]+$/.test(num)) {
+                document.getElementById("RESULT").value = "Invalid Binary Number.";
+                return;
+            }
+            decimalNumber = parseInt(num, 2);
+        } else if (fromBase === "octal") {
+            if (!/^[0-7]+$/.test(num)) {
+                document.getElementById("RESULT").value = "Invalid Octal Number.";
+                return;
+            }
+            decimalNumber = parseInt(num, 8);
+        } else if (fromBase === "decimal") {
+            if (!/^\d+$/.test(num)) {
+                document.getElementById("RESULT").value = "Invalid Decimal Number.";
+                return;
+            }
+            decimalNumber = parseInt(num, 10);
+        } else if (fromBase === "hexadecimal") {
+            if (!/^[0-9A-Fa-f]+$/.test(num)) {
+                document.getElementById("RESULT").value = "Invalid Hexadecimal Number.";
+                return;
+            }
+            decimalNumber = parseInt(num, 16);
+        }
+
+        if (toBase === "bin") {
+            result = decimalNumber.toString(2);
+        } else if (toBase === "octal") {
+            result = decimalNumber.toString(8);
+        } else if (toBase === "decimal") {
+            result = decimalNumber.toString(10);
+        } else if (toBase === "hexadecimal") {
+            result = decimalNumber.toString(16);
+        }
+
+        document.getElementById("RESULT").value = result.toUpperCase();
+    }
+</script>
+</body>
+</html>

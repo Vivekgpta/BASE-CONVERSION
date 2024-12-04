@@ -1,0 +1,102 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles for full screen */
+body {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Beautiful gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Box styles */
+.box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px 20px; /* Reduced padding for a smaller box */
+    width: 90%;
+    max-width: 400px; /* Reduced width */
+    transition: all 0.3s ease-in-out;
+}
+
+.box:hover {
+    transform: translateY(-8px); /* Slightly reduced hover effect */
+}
+
+/* Header styles */
+h1 {
+    font-size: 1.8rem; /* Reduced font size */
+    color: #333;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Input field styles */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f7f7f7;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #2575fc;
+    outline: none;
+    box-shadow: 0 0 10px rgba(37, 117, 252, 0.6);
+}
+
+/* Button styles */
+button.stars {
+    width: 100%;
+    padding: 12px; /* Reduced padding */
+    font-size: 1rem; /* Reduced font size */
+    border-radius: 8px;
+    border: none;
+    background-color: #2575fc;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button.stars:hover {
+    background-color: #6a11cb;
+    transform: scale(1.05);
+}
+
+/* Result input field */
+input[readonly] {
+    background-color: #e0e0e0;
+    color: #333;
+    cursor: not-allowed;
+}
+
+/* Media Query for small screens */
+@media screen and (max-width: 600px) {
+    .box {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6rem; /* Slightly smaller heading */
+    }
+
+    button.stars {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
